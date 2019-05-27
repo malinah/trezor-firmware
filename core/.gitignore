@@ -4,3 +4,6 @@ build-docker/
 compile_commands.json
 emu.config
 tests/trezor_monero_tests{,.log}
+.coverage
+.coverage.*
+htmlcov/
