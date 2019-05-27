@@ -94,7 +94,7 @@ async def alert(count: int = 3):
     display.backlight(current)
 
 
-async def click() -> tuple:
+def click() -> tuple:
     touch = loop.wait(io.TOUCH)
     while True:
         ev, *pos = yield touch
