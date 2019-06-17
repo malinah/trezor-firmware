@@ -355,6 +355,7 @@ env.Replace(
     PYTHON='python',
     MAKEQSTRDATA='$PYTHON vendor/micropython/py/makeqstrdata.py',
     MAKEVERSIONHDR='$PYTHON vendor/micropython/py/makeversionhdr.py',
+    MAKEMODULEDEFS='$PYTHON vendor/micropython/py/makemoduledefs.py',
     MPY_TOOL='$PYTHON vendor/micropython/tools/mpy-tool.py',
     MPY_CROSS='vendor/micropython/mpy-cross/mpy-cross -O' + PYOPT
 )
@@ -367,6 +368,15 @@ hdr_version = env.Command(
     target='genhdr/mpversion.h',
     source='',
     action='$MAKEVERSIONHDR $TARGET', )
+
+#
+# Micropython modules
+#
+
+hdr_modules = env.Command(
+    target='genhdr/moduledefs.h',
+    source='',
+    action='$MAKEMODULEDEFS > $TARGET', )
 
 #
 # Qstrings
